@@ -5,11 +5,8 @@ import '../styles/globals.css';
 function MyApp({ Component, pageProps }) {
   return (
     <ViewProvider>
-
-        <Home>
-        <Component {...pageProps} />
-        </Home>
-    </ViewProvider>
+    <Component {...pageProps} />
+  </ViewProvider>
   );
 }
 

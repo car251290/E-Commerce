@@ -7,7 +7,6 @@ import Review from '../components/Review';
 export default function Index() {
   const { currentView } = useView();
 
-  if (currentView === 'product') return <Product />;
   if (currentView === 'review') return <Review />;
   return <Home />;
 }
