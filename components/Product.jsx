@@ -14,7 +14,7 @@ const Product = () => {
         <img src={selectedProduct.image} alt={selectedProduct.name} className="w-1/2" />
         <h1 className="text-3xl font-bold my-4">{selectedProduct.name}</h1>
         <p className="text-lg mb-4">{selectedProduct.description}</p>
-        <p className="text-2xl mb-4">${selectedProduct.price}</p>
+        <p className="text-2xl mb-4">${selectedProduct.price.toFixed(2)}</p>
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded"
           onClick={() => changeView('review')}

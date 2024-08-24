@@ -1,28 +1,50 @@
 import React from 'react';
 import { useView } from '../context/ViewContext';
 import { useRouter } from 'next/router';
-
+import { Card, CardActionArea, CardContent, CardMedia, Button, Typography } from '@mui/material';
 
 const ProductCard = ({ product }) => {
   const { changeView } = useView();
 
   const handleReviewClick = () => {
-    // Set the selected product and navigate to the review page
     changeView('review', product);
   };
 
   return (
-    <div className="product-card bg-white shadow-lg rounded-lg p-4 cursor-pointer">
-      <img src={product.image} alt={product.name} className="w-full h-60 object-cover mb-5 rounded transform scale-90 transition-transform duration-300 ease-out hover:scale-100"/>
-      <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-      <p className="text-gray-700">${product.price.toFixed(2)}</p>
-      <button
+    <Card sx={{ width: 300, height: 400, m: 2, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          image={product.image}
+          alt={product.name}
+          sx={{
+            height: 200,
+            objectFit: 'cover',
+            transition: 'transform 0.3s ease-in-out',
+            '&:hover': {
+              transform: 'scale(1.05)', // Slight zoom on hover
+            },
+          }}
+        />
+        <CardContent sx={{ flexGrow: 1 }}>
+          <Typography gutterBottom variant="h6" component="div">
+            {product.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            ${product.price.toFixed(2)}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <Button
         onClick={handleReviewClick}
-        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        variant="contained"
+        color="primary"
+        sx={{ m: 2 }}
       >
         Review Product
-      </button>
-    </div>
+      </Button>
+    </Card>
   );
 };
+
 export default ProductCard;
