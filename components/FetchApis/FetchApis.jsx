@@ -19,3 +19,31 @@ export const fetchApis = async()  => {
     }
 };
 
+// your react component
+
+const YourComponent = () => {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const data = await fetchApis();
+                setProducts(data);
+            } catch(err){
+                console.log('Error fetching the data', err);
+            }
+        };
+        fetchProducts();
+    }, []);
+    return (
+        <div>
+          {/* Render your products here */}
+          {products.map(product => (
+            <div key={product.id}>
+              <h2>{product.title}</h2>
+              <p>{product.description}</p>
+              <p>{product.price}</p>
+            </div>
+          ))}
+        </div>
+      );
+}

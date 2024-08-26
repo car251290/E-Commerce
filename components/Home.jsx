@@ -5,8 +5,7 @@ import ProductCard from './ProductCard';
 import NavBar from './NavBar';
 import { useRouter } from 'next/router';
 import { fetchApis } from './FetchApis/FetchApis';  
-import Footer from './Footer';
-
+import Footer from './Footer/Footer'
 const Home = () => {
   const { changeView } = useView();
   const [products, setProducts] = useState([]);

@@ -1,10 +1,10 @@
 import React from 'react';
-import { useView } from '../context/ViewContext';
+import { useView  } from '../context/ViewContext';
 import Navbar from './NavBar';
-
+import Footer from './Footer/Footer';
 
 const Review = () => {
-  const { selectedProduct } = useView();
+  const { selectedProduct } = useView ();
 
   if (!selectedProduct) {
     return (
@@ -16,6 +16,10 @@ const Review = () => {
       </>
     );
   }
+  // destructuring selectedProduct
+  const {image, name , description, price, quantity} = selectedProduct;
+
+  const totalPrice = (selectedProduct.price * selectedProduct.quantity).toFixed(2);
 
   return (
     <>
@@ -30,7 +34,8 @@ const Review = () => {
           />
           <h3 className="text-xl font-semibold mb-2">{selectedProduct.name}</h3>
           <p className="text-gray-700 mb-2">{selectedProduct.description}</p>
-          <p className="text-lg font-bold mb-4">${selectedProduct.price.toFixed(2)}</p>
+          <p className="text-lg font-bold mb-4">Quantity: {selectedProduct.quantity}</p>
+          <p className="text-lg font-bold mb-4">Total Price: ${totalPrice}</p>
           <button
             className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
             onClick={() => alert('Feature coming soon!')}
@@ -39,6 +44,7 @@ const Review = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

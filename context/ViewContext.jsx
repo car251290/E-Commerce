@@ -10,19 +10,7 @@ export const ViewProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   const [selectedProduct, setSelectedProduct] = useState(null);
-  // fethcing the data from the api
 
-  useEffect(() => {
-    const fetchApis = async () => {
-      setLoading(true);
-      const products = await fetchApis();
-      setProducts(products);
-      setLoading(false);
-    };
-
-    fetchApis();
-
-  }, []);
 
   const changeView = (view, product) => {
     setCurrentView(view);
@@ -30,9 +18,7 @@ export const ViewProvider = ({ children }) => {
   };
 
   return (
-    <ViewContext.Provider value={{ currentView, changeView, selectedProduct,products,loading
-
-     }}>
+    <ViewContext.Provider value={{ currentView, changeView, selectedProduct,products,loading}}>
       {children}
     </ViewContext.Provider>
   );
