@@ -119,11 +119,13 @@ footer {
   background-color: #1f2937;
   color: white;
   text-align: center;
+
   padding: 1.5rem 0;
   margin-top: auto; /* Push footer to the bottom */
 }
 footer .container {
   max-width: 1200px;
+ 
   margin: 0 auto;
 }
 
