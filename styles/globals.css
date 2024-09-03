@@ -15,11 +15,13 @@
 
 /* Product Card Container */
 .product-card-container {
-  background-color: #ffffff; /* White background for cards */
-  border-radius: 0.75rem; /* Rounded corners, use Tailwind's rounded-lg */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect, use Tailwind's shadow-md */
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  
 }
 
 .product-card-container:hover {
@@ -49,11 +51,14 @@
 .product-description {
   color: #4b5563; /* Tailwind's text-gray-600 */
   margin-bottom: 0.5rem;
+  text-align: center;
+
 }
 
 .product-price {
   font-size: 1.125rem; /* Tailwind's text-lg */
   font-weight: 700; /* Tailwind's font-bold */
+  text-align: center;
 }
 
 /* Product Card Styles */

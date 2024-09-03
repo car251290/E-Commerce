@@ -1,6 +1,11 @@
 import React, { createContext, useEffect, useContext, useState } from 'react';
 import { fetchApis } from '../components/FetchApis/FetchApis';
 import axios from 'axios';
+
+
+
+
+
 const ViewContext = createContext();
 
 export const ViewProvider = ({ children }) => {
@@ -8,9 +13,15 @@ export const ViewProvider = ({ children }) => {
   const [products, setProducts] = useState([]); 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+const handlerError = ((error)=> {
+  setError(error);
+  if(products.length === error){
+    setError(null);
+    console.log(`the product has null error`,error);
+  }
+});
 
   const changeView = (view, product) => {
     setCurrentView(view);
@@ -18,7 +29,7 @@ export const ViewProvider = ({ children }) => {
   };
 
   return (
-    <ViewContext.Provider value={{ currentView, changeView, selectedProduct,products,loading}}>
+    <ViewContext.Provider value={{ handlerError, currentView, changeView, selectedProduct,products,loading}}>
       {children}
     </ViewContext.Provider>
   );

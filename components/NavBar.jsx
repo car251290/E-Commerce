@@ -16,8 +16,8 @@ const Navbar = () => {
   };
 
   // Handle search button submit
-  const handleSearchSubmit = (event) => {
-    event.preventDefault();
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
     if (searchTerm.trim()) {
       router.push(`/product?search=${encodeURIComponent(searchTerm.trim())}`);
     }
