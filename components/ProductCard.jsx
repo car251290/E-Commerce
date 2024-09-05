@@ -16,7 +16,7 @@ const ProductCard = ({ product, onSelect }) => {
   const [quantity, setQuantity] = useState(1);
   const [selected, setSelected] = useState(false);
   const router = useRouter();
-  const {changeView} = useView();
+  const {changeView,  addToCart,} = useView();
 
   const toggleDescription = () => setShowDescription(!showDescription);
   const toggleCloudSize = () => setShowCloudSize(!showCloudSize);
@@ -27,10 +27,16 @@ const ProductCard = ({ product, onSelect }) => {
     setSelected(!selected);
     onSelect(product, !selected);
   };
-// const handleReview 
+// const handleReview of the product card component is called when the review button is clicked. It calls the changeView function with the view set to review and the product and quantity as arguments.
 const handleReviewClick = () => {
   changeView('review',{...product,quantity});
-}
+};
+
+
+
+
+
+
   return (
     <Card className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">
     {/* Image and Link */}

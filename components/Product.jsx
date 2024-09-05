@@ -4,8 +4,9 @@ import { useRouter } from 'next/router';
 
 const Product = () => {
   const router = useRouter();
-  const { selectedProducts } = useView();
-
+  const { getSelectionProducts } = useView();
+  
+const selectedProducts = getSelectionProducts();
   if (!selectedProducts || selectedProducts.length === 0) {
     return (
       <div className="container mx-auto px-4 py-8">

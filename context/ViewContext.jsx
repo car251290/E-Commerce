@@ -1,8 +1,10 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useRef} from 'react';
 
 const ViewContext = createContext();
 
 export const ViewProvider = ({ children }) => {
+  const selectedProductsRef = useRef([]);
+
   const [currentView, setCurrentView] = useState('home');
   const [products, setProducts] = useState([]); 
   const [loading, setLoading] = useState(false);
@@ -27,8 +29,18 @@ export const ViewProvider = ({ children }) => {
   };
 
   // View change handler
-  const changeView = (view, product) => {
+  const changeView = (view, product, newProduct) => {
     setCurrentView(view);
+    // add a new product to the selectedProducts array
+    const existingProductIndex = selectedProductsRef.current.findIndex(p => p.name === newProduct.name);
+    if(existingProductIndex !== -1){
+      selectedProductsRef.current[existingProductIndex].quantity  += newProduct.quantity;
+
+    } else {
+      // add the new product to the cart
+      selectedProductsRef.current.push(newProduct);
+    }
+    // Add product to the selected products list
     if (view === 'review') {
       setSelectedProducts((prevSelectedProducts) => {
         const existingProductIndex = prevSelectedProducts.findIndex(p => p.id === product.id);
@@ -46,8 +58,31 @@ export const ViewProvider = ({ children }) => {
   };
 
   // Clear selected products
+  //const clearSelectedProducts = () => {
+    //setSelectedProducts([]);
+  //};
+
+  // add a new product to the selectedProducts array
+  //const addToCart = (newProduct) => {
+  //  const existingProductIndex = selectedProductsRef.current.findIndex(p => p.name === newProduct.name);
+  //  if(existingProductIndex !== -1){
+    //  selectedProductsRef.current[existingProductIndex].quantity  += newProduct.quantity;
+
+   // } else {
+      // add the new product to the cart
+     // selectedProductsRef.current.push(newProduct);
+   // }
+
+   //};
+
+
+
+   const getSelectedProducts = () => {
+    return selectedProductsRef.current;
+  };
+
   const clearSelectedProducts = () => {
-    setSelectedProducts([]);
+    selectedProductsRef.current = [];
   };
 
   return (
@@ -60,7 +95,9 @@ export const ViewProvider = ({ children }) => {
         selectedProducts, 
         products, 
         loading, 
-        clearSelectedProducts
+        clearSelectedProducts,
+      
+        getSelectedProducts
       }}
     >
       {children}

@@ -5,6 +5,7 @@ import Footer from './Footer/Footer';
 
 const Review = () => {
   const { selectedProducts, clearSelectedProducts } = useView();
+  
 
   if (!selectedProducts || selectedProducts.length === 0) {
     return (
