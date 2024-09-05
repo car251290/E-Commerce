@@ -28,19 +28,25 @@ Source Folder (src/):
 
 Components:
 This folder houses reusable React components, such as Navbar.jsx and ProductCard.jsx, which are essential building blocks of the user interface. These components are designed to be modular and flexible, allowing for easy integration and updates.
+
 Context:
 The ViewContext.js within the context/ folder is responsible for managing the state of the application view. This setup allows me to share state globally across components, making it easier to manage user interactions, view changes, and navigation.
+
 Pages:
 The pages/ directory is crucial as it's the entry point for my application routes in Next.js. Pages like index.js (for the homepage), product.js (for displaying individual product details), and review.js (for product reviews) are managed here. These pages interact with backend APIs and the global state for data fetching and rendering.
+
 Styles:
 Global styling is managed in styles/globals.css, which also imports Tailwind CSS. Tailwind allows for responsive design, consistency, and rapid UI prototyping, ensuring the app looks polished across devices.
 Other Configurations:
 
 Tailwind & PostCSS Configurations:
 These configurations (tailwind.config.js and postcss.config.js) enable efficient styling through Tailwind and PostCSS, ensuring performance optimization in processing CSS and making it easy to extend styles with custom utility classes.
+
 Package.json:
 This file manages the dependencies and scripts for running the application, ensuring the project is easily maintainable with clear package management.
 README.md:
 The README file documents the project's purpose, setup, and instructions, making it easy for future developers or collaborators to understand and contribute.
+
 How My Application is Progressing:
+
 The project is set up to ensure maintainability, scalability, and ease of development. With reusable components and context management, I can efficiently handle the user interface and business logic. Using Next.js for routing and server-side rendering ensures high performance, while Tailwind CSS provides a fast, responsive design system. Overall, the structure allows me to manage features like product listings, reviews, and navigation smoothly and maintain a high-quality user experience.
