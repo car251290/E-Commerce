@@ -10,16 +10,26 @@ const Navbar = () => {
 
   // Handle search input change
   const handleSearchChange = (event) => {
+    event.preventDefault();
     setSearchTerm(event.target.value);
+    if(searchTerm.trim()){
+      router.push(`/product?search=${encodeURIComponent(searchTerm.trim())}`);
+      console.log(searchTerm);
+
+    }
+    else {
+      alert("Search is not valid or empty");
+    }
+
   };
 
   // Handle search button submit
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      router.push(`/product?search=${encodeURIComponent(searchTerm.trim())}`);
-    }
-  };
+ // const handleSearchSubmit = (e) => {
+  //  e.preventDefault();
+   // if (searchTerm.trim()) {
+   //   router.push(`/product?search=${encodeURIComponent(searchTerm.trim())}`);
+   // }
+  //};
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
