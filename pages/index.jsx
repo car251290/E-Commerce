@@ -15,13 +15,22 @@ export default function Index({products}) {
 }
 export async function getStaticProps() {
   const res = await fetch('https://fakestoreapi.com/products');
-  const products = await res.json();
-  return {
-    props: {
-      products,
-    },
-  };
+  const data = await res.text(); 
+  console.log(data); 
+  
+  try {
+    const products = JSON.parse(data);
+    return {
+      props: {
+        products,
+      },
+    };
+  } catch (error) {
+    console.error('Error parsing JSON:', error);
+    return {
+      notFound: true,
+    };
+  }
 }
-
 
 

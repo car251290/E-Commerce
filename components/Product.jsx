@@ -4,9 +4,11 @@ import { useRouter } from 'next/router';
 
 const Product = () => {
   const router = useRouter();
-  const { getSelectionProducts } = useView();
-  
-const selectedProducts = getSelectionProducts();
+  const {  selectedProducts } = useView();
+  // this one has to be change the product and update the new product
+  // debugger next week 
+//const selectedProducts = getSelectionProducts();
+
   if (!selectedProducts || selectedProducts.length === 0) {
     return (
       <div className="container mx-auto px-4 py-8">
@@ -23,6 +25,7 @@ const selectedProducts = getSelectionProducts();
     // The Product component displays the selected products. It receives the selectedProducts array from the ViewContext and maps over the array to display each product in a product card. 
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col items-center">
+        <h1 className="text-3xl font-bold mb-6 text-center">Product-Review</h1>
           {selectedProducts.map((product, index) => (
             <div key={index} className="product-card mx-auto max-w-md bg-white shadow-lg rounded-lg overflow-hidden mb-8">
               <div className="relative">

@@ -57,24 +57,6 @@ export const ViewProvider = ({ children }) => {
     }
   };
 
-  // Clear selected products
-  //const clearSelectedProducts = () => {
-    //setSelectedProducts([]);
-  //};
-
-  // add a new product to the selectedProducts array
-  //const addToCart = (newProduct) => {
-  //  const existingProductIndex = selectedProductsRef.current.findIndex(p => p.name === newProduct.name);
-  //  if(existingProductIndex !== -1){
-    //  selectedProductsRef.current[existingProductIndex].quantity  += newProduct.quantity;
-
-   // } else {
-      // add the new product to the cart
-     // selectedProductsRef.current.push(newProduct);
-   // }
-
-   //};
-
 
 
    const getSelectedProducts = () => {
