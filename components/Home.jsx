@@ -9,6 +9,8 @@ const Home = () => {
   const { changeView } = useView();
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -32,9 +34,16 @@ const Home = () => {
     });
   };
 
-  const handleBuyNowClick = () => {
-    changeView('review', { selectedProducts });
-  };
+  //const handleBuyNowClick = () => {
+  //  changeView('review', { selectedProducts });
+  //};
+  // filter the products bases on the search term 
+
+  // Filter products based on the search term
+  const filteredProducts = products.filter((product) =>
+    (product.name && product.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
 
   return (
     <>

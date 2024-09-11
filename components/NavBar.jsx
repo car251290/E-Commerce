@@ -3,25 +3,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useView } from '../context/ViewContext';
 import Review from './Review';
-
-const Navbar = () => {
+import Search from './Search';
+const Navbar = ({searchTerm,handleSearchChange}) => {
   const router = useRouter();
-  const [searchTerm, setSearchTerm] = useState('');
-
-  // Handle search input change
-  const handleSearchChange = (event) => {
-    event.preventDefault();
-    setSearchTerm(event.target.value);
-    if(searchTerm.trim()){
-      router.push(`/product?search=${encodeURIComponent(searchTerm.trim())}`);
-      console.log(searchTerm);
-
-    }
-    else {
-      alert("Search is not valid or empty");
-    }
-
-  };
+  
 
   // Handle search button submit
  // const handleSearchSubmit = (e) => {

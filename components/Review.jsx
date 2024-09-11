@@ -27,7 +27,9 @@ const Review = () => {
     <>
     <Navbar />
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-center">Review Your Purchase</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">
+        Review Your Purchase
+        </h1>
       {selectedProducts.map((product, index) => {
         // Convert price and quantity to numbers if necessary
         const price = Number(product.price);
